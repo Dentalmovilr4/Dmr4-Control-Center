@@ -1,22 +1,33 @@
 from miner import get_market_data
 from analyzer import analyze_coin
-from storage import save_snapshot
+from storage import save_snapshot, load_history
 from dashboard import generate_dashboard
+from notifier import send_alert
 
 def run():
-    raw_data = get_market_data()
+    raw = get_market_data()
+    history = load_history()
 
-    analyzed = []
+    results = []
 
-    for coin in raw_data:
+    for coin in raw:
         try:
-            analyzed.append(analyze_coin(coin))
+            result = analyze_coin(coin, history)
+
+            if not result:
+                continue
+
+            # 🔔 ALERTAS SOLO ALTO NIVEL
+            if result["score"] >= 10:
+                send_alert(result)
+
+            results.append(result)
+
         except:
             continue
 
-    save_snapshot(analyzed)
-    generate_dashboard(analyzed)
+    save_snapshot(results)
+    generate_dashboard(results)
 
 if __name__ == "__main__":
     run()
-
