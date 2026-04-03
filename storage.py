@@ -29,4 +29,4 @@ def save_snapshot(coins):
     })
 
     with open(FILE, "w") as f:
-        json.dump(history, f, indent=2)1
+        json.dump(history, f, indent=2)
