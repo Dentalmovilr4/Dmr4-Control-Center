@@ -1,0 +1,36 @@
+name: DMR4 Crypto Miner
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # cada hora
+  workflow_dispatch:
+
+jobs:
+  run-miner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          pip install requests python-dotenv
+
+      - name: Ejecutar minero
+        run: python main.py
+        env:
+          CMC_API_KEY: ${{ secrets.CMC_API_KEY }}
+
+      - name: Commit resultados
+        run: |
+          git config user.name "dmr4-bot"
+          git config user.email "bot@dmr4.ai"
+          git add .
+          git commit -m "⛏️ update mining data" || echo "no changes"
+          git push
