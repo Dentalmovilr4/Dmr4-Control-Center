@@ -7,31 +7,18 @@ def generate_dashboard(coins):
         html += f"""
         <div class="coin">
             <b>{c['name']}</b> |
-            ${c['price']:.2f} |
+            ${c['price']:.4f} |
             {c['change']:.2f}% |
-            <span>{c['tag']}</span> |
-            Score: {c['score']}
+            {c['tag']} |
+            🤖 {c['prediction']} |
+            ⭐ {c['score']}
         </div>
         """
 
     template = f"""
     <html>
-    <head>
-    <style>
-    body {{
-        background:black;
-        color:#00ff99;
-        font-family:monospace;
-        text-align:center;
-    }}
-    .coin {{
-        border-bottom:1px solid #222;
-        padding:10px;
-    }}
-    </style>
-    </head>
-    <body>
-    <h1>⛏️ DMR4 AI MINER</h1>
+    <body style="background:black;color:#00ff99;font-family:monospace;text-align:center">
+    <h1>🧠 DMR4 IA EXPERTA</h1>
     {html}
     </body>
     </html>
