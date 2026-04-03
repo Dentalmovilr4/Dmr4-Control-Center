@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DMR4 AI Miner</title>
-<meta name="description" content="Sistema de minería de datos cripto con IA - DMR4">
+<title>DMR4 AI RADAR</title>
+<meta name="description" content="Radar inteligente de oportunidades cripto con IA">
 
 <style>
 body {
@@ -21,8 +21,9 @@ body {
     border: 2px solid #00ff99;
     display: inline-block;
     padding: 25px;
-    box-shadow: 0 0 20px #00ff99;
-    border-radius: 10px;
+    box-shadow: 0 0 25px #00ff99;
+    border-radius: 12px;
+    min-width: 320px;
 }
 
 /* HEADER */
@@ -49,20 +50,27 @@ h1 {
 }
 
 /* COLORES */
-.high { color: #00ff00; }
-.medium { color: #ffaa00; }
-.low { color: #ff4444; }
+.radar { color: #00ffff; }
+.watch { color: #ffaa00; }
+.strong { color: #00ff00; }
 
 /* BADGES */
 .badge {
     padding: 3px 8px;
     border-radius: 5px;
     margin-left: 5px;
+    font-size: 12px;
 }
 
 .gem { background: purple; }
 .mine { background: #0066ff; }
 .normal { background: #333; }
+
+/* ESTADO VACÍO */
+.empty {
+    color: #555;
+    padding: 20px;
+}
 
 /* FOOTER */
 .footer {
@@ -76,16 +84,26 @@ h1 {
 <body>
 
 <div class="container">
-    <h1>⛏️ DMR4 AI MINER</h1>
-    <div class="subtitle">Detección automática de oportunidades cripto</div>
+    <h1>📡 DMR4 AI RADAR</h1>
+    <div class="subtitle">Detección temprana de oportunidades</div>
 
-    <!-- 🔥 AQUÍ SE INYECTAN LOS DATOS -->
-    {{COINS}}
+    <div id="coins-container">
+        {{COINS}}
+    </div>
 
     <div class="footer">
-        Actualizado automáticamente por IA
+        Sistema autónomo activo 24/7
     </div>
 </div>
+
+<script>
+    // 🔥 SI NO HAY DATOS → mensaje automático
+    const container = document.getElementById("coins-container");
+
+    if (!container.innerHTML.trim() || container.innerHTML.includes("{{COINS}}")) {
+        container.innerHTML = "<div class='empty'>⚠️ Sin datos aún... esperando análisis</div>";
+    }
+</script>
 
 </body>
 </html>
