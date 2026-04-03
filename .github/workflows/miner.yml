@@ -1,4 +1,4 @@
-name: DMR4 Crypto Miner
+name: DMR4 AI RADAR
 
 on:
   schedule:
@@ -9,6 +9,9 @@ jobs:
   run-miner:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write   # 🔥 NECESARIO para hacer push
+
     steps:
       - name: Clonar repo
         uses: actions/checkout@v3
@@ -16,7 +19,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.10'   # 🔥 más estable que 3.12
 
       - name: Instalar dependencias
         run: |
@@ -26,11 +29,13 @@ jobs:
         run: python main.py
         env:
           CMC_API_KEY: ${{ secrets.CMC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
       - name: Commit resultados
         run: |
           git config user.name "dmr4-bot"
           git config user.email "bot@dmr4.ai"
           git add .
-          git commit -m "⛏️ update mining data" || echo "no changes"
+          git commit -m "📡 radar update" || echo "no changes"
           git push
