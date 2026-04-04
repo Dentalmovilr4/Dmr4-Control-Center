@@ -1,0 +1,19 @@
+import sqlite3
+
+def get_db():
+    conn = sqlite3.connect("users.db")
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def init_db():
+    conn = get_db()
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        password TEXT,
+        is_pro INTEGER DEFAULT 0
+    )
+    """)
+    conn.commit()
+    conn.close()
