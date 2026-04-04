@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>DMR4 Hybrid</title>
-<link rel="stylesheet" href="/static/style.css">
-</head>
+<h1>🚀 DMR4 STARTUP</h1>
 
-<body>
+<p>Plan actual: {{plan}}</p>
 
-<h1>📡 DMR4 HYBRID SYSTEM</h1>
+<a href="/pay/pro">💳 PRO ($5)</a>
+<a href="/pay/elite">🔥 ELITE ($15)</a>
+<a href="/logout">Salir</a>
 
 <table>
 <tr>
 <th>Moneda</th>
-<th>Precio</th>
-<th>%</th>
 <th>Score</th>
-<th>Señal</th>
 <th>IA</th>
 </tr>
 
 {% for c in coins %}
 <tr>
 <td>{{c.name}}</td>
-<td>${{ "%.4f"|format(c.price) }}</td>
-<td>{{ "%.2f"|format(c.change) }}%</td>
 <td>{{c.score}}</td>
-<td>{{c.tag}}</td>
 <td>{{c.prediction}}</td>
 </tr>
 {% endfor %}
-
 </table>
-
-<script>
-setInterval(() => location.reload(), 60000);
-</script>
-
-</body>
-</html>
