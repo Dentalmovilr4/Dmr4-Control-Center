@@ -5,3 +5,6 @@ stripe
 bcrypt
 psycopg2-binary
 gunicorn
+scikit-learn
+numpy
+joblib
