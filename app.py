@@ -5,7 +5,16 @@ from payments import create_checkout
 import json, os
 
 app = Flask(__name__)
-app.secret_key = "supersecret"
+
+# 🔐 CLAVE SEGURA
+app.secret_key = os.getenv("SECRET_KEY", "fallback-key")
+
+# 🔒 CONFIGURACIÓN SEGURA DE COOKIES
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=False,  # poner True en producción HTTPS
+    SESSION_COOKIE_SAMESITE="Lax"
+)
 
 init_db()
 
@@ -24,15 +33,16 @@ def get_user():
     if "user_id" not in session:
         return None
     db = get_db()
-    return db.execute("SELECT * FROM users WHERE id=?",
-                      (session["user_id"],)).fetchone()
+    return db.execute(
+        "SELECT * FROM users WHERE id=?",
+        (session["user_id"],)
+    ).fetchone()
 
 @app.route("/")
 def index():
     coins = get_latest()
     user = get_user()
 
-    # 🔒 limitar contenido
     if user and user["is_pro"] == 0:
         coins = [c for c in coins if c["score"] < 8]
 
@@ -57,15 +67,22 @@ def pay():
 @app.route("/success")
 def success():
     user = get_user()
+    if not user:
+        return redirect("/login")
+
     db = get_db()
-    db.execute("UPDATE users SET is_pro=1 WHERE id=?", (user["id"],))
+    db.execute(
+        "UPDATE users SET is_pro=1 WHERE id=?",
+        (user["id"],)
+    )
     db.commit()
+
     return redirect("/")
 
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/")
-    
+
 if __name__ == "__main__":
     app.run()
