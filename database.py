@@ -1,19 +1,23 @@
-import sqlite3
+import psycopg2
+import os
 
 def get_db():
-    conn = sqlite3.connect("users.db")
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(os.getenv("DATABASE_URL"))
     return conn
 
 def init_db():
     conn = get_db()
-    conn.execute("""
+    cur = conn.cursor()
+
+    cur.execute("""
     CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id SERIAL PRIMARY KEY,
         username TEXT UNIQUE,
         password TEXT,
         is_pro INTEGER DEFAULT 0
     )
     """)
+
     conn.commit()
+    cur.close()
     conn.close()
