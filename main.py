@@ -1,8 +1,9 @@
 from miner import get_market_data
 from analyzer import analyze_coin
 from storage import save_snapshot, load_history
-from notifier import send_alert
 from viral import send_viral
+from ai_institutional import train_model
+from fund_manager import simulate_trades
 
 def run():
     raw = get_market_data()
@@ -14,20 +15,22 @@ def run():
         try:
             result = analyze_coin(coin, history)
 
-            if not result:
-                continue
-
-            if result["score"] >= 10:
-                send_alert(result)
-
-            results.append(result)
+            if result:
+                results.append(result)
 
         except:
             continue
 
     save_snapshot(results)
 
-    # 🔥 VIRAL AUTOMÁTICO
+    # 🧠 entrenar IA
+    train_model()
+
+    # 💰 simular fondo
+    fund = simulate_trades()
+
+    print(f"💰 Capital actual: ${fund['capital']:.2f}")
+
     if results:
         results = sorted(results, key=lambda x: x["score"], reverse=True)
         send_viral(results)
