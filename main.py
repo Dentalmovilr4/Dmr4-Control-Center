@@ -28,3 +28,8 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+from viral_bot import run as viral_run
+
+# al final del script
+viral_run()
