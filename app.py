@@ -1,17 +1,12 @@
 from flask import Flask, render_template, request, session, redirect
 from database import init_db, get_db
 from auth import login, register
-from payments import create_checkout
+from payments import create_checkout, activate_plan
+from plans import filter_coins_by_plan
 import json, os
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
-
-app.config.update(
-    SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_SAMESITE="Lax"
-)
 
 init_db()
 
@@ -26,25 +21,37 @@ def get_latest():
         return []
     return history[-1]["coins"]
 
-@app.route("/")
-def index():
-    coins = get_latest()
-
+def get_user():
     if "user_id" not in session:
-        return render_template("index.html", coins=[])
+        return None
 
     conn = get_db()
     cur = conn.cursor()
-    cur.execute("SELECT is_pro FROM users WHERE id=%s", (session["user_id"],))
+
+    cur.execute(
+        "SELECT id, plan FROM users WHERE id=%s",
+        (session["user_id"],)
+    )
+
     user = cur.fetchone()
 
     cur.close()
     conn.close()
 
-    if user and user[0] == 0:
-        coins = [c for c in coins if c["score"] < 8]
+    return user
 
-    return render_template("index.html", coins=coins)
+@app.route("/")
+def index():
+    coins = get_latest()
+    user = get_user()
+
+    plan = "free"
+    if user:
+        plan = user[1]
+
+    coins = filter_coins_by_plan(coins, plan)
+
+    return render_template("index.html", coins=coins, plan=plan)
 
 @app.route("/login", methods=["GET","POST"])
 def login_route():
@@ -58,24 +65,14 @@ def register_route():
         return register()
     return render_template("register.html")
 
-@app.route("/pay")
-def pay():
-    return create_checkout()
+@app.route("/pay/<plan>")
+def pay(plan):
+    return create_checkout(plan)
 
 @app.route("/success")
 def success():
-    conn = get_db()
-    cur = conn.cursor()
-
-    cur.execute(
-        "UPDATE users SET is_pro=1 WHERE id=%s",
-        (session["user_id"],)
-    )
-
-    conn.commit()
-    cur.close()
-    conn.close()
-
+    plan = request.args.get("plan")
+    activate_plan(session["user_id"], plan)
     return redirect("/")
 
 @app.route("/logout")
