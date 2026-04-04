@@ -6,17 +6,22 @@ def register():
     username = request.form["username"]
     password = request.form["password"]
 
-    hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+    hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
-    db = get_db()
+    conn = get_db()
+    cur = conn.cursor()
+
     try:
-        db.execute(
-            "INSERT INTO users (username, password) VALUES (?,?)",
+        cur.execute(
+            "INSERT INTO users (username, password) VALUES (%s,%s)",
             (username, hashed)
         )
-        db.commit()
+        conn.commit()
     except:
         return "Usuario ya existe"
+
+    cur.close()
+    conn.close()
 
     return redirect("/login")
 
@@ -24,14 +29,20 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    db = get_db()
-    user = db.execute(
-        "SELECT * FROM users WHERE username=?",
-        (username,)
-    ).fetchone()
+    conn = get_db()
+    cur = conn.cursor()
 
-    if user and bcrypt.checkpw(password.encode(), user["password"]):
-        session["user_id"] = user["id"]
+    cur.execute(
+        "SELECT id, password FROM users WHERE username=%s",
+        (username,)
+    )
+    user = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    if user and bcrypt.checkpw(password.encode(), user[1].encode()):
+        session["user_id"] = user[0]
         return redirect("/")
 
     return "Login incorrecto"
