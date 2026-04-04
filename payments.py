@@ -13,13 +13,13 @@ def create_checkout():
                 "product_data": {
                     "name": "DMR4 PRO"
                 },
-                "unit_amount": 500,  # $5
+                "unit_amount": 500,
             },
             "quantity": 1,
         }],
         mode="payment",
-        success_url="http://localhost:5000/success",
-        cancel_url="http://localhost:5000"
+        success_url=os.getenv("BASE_URL") + "/success",
+        cancel_url=os.getenv("BASE_URL")
     )
 
     return redirect(session.url)
