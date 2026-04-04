@@ -1,0 +1,24 @@
+<h1>DMR4 PRO</h1>
+
+{% if user %}
+<p>Usuario: {{user.username}}</p>
+<a href="/logout">Salir</a>
+
+{% if user.is_pro == 0 %}
+<a href="/pay">💳 Activar PRO</a>
+{% endif %}
+
+{% else %}
+<a href="/login">Login</a>
+<a href="/register">Registro</a>
+{% endif %}
+
+<table>
+{% for c in coins %}
+<tr>
+<td>{{c.name}}</td>
+<td>{{c.score}}</td>
+<td>{{c.prediction}}</td>
+</tr>
+{% endfor %}
+</table>
