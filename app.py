@@ -5,14 +5,11 @@ from payments import create_checkout
 import json, os
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
 
-# 🔐 CLAVE SEGURA
-app.secret_key = os.getenv("SECRET_KEY", "fallback-key")
-
-# 🔒 CONFIGURACIÓN SEGURA DE COOKIES
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SECURE=False,  # poner True en producción HTTPS
+    SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_SAMESITE="Lax"
 )
 
@@ -29,24 +26,25 @@ def get_latest():
         return []
     return history[-1]["coins"]
 
-def get_user():
-    if "user_id" not in session:
-        return None
-    db = get_db()
-    return db.execute(
-        "SELECT * FROM users WHERE id=?",
-        (session["user_id"],)
-    ).fetchone()
-
 @app.route("/")
 def index():
     coins = get_latest()
-    user = get_user()
 
-    if user and user["is_pro"] == 0:
+    if "user_id" not in session:
+        return render_template("index.html", coins=[])
+
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT is_pro FROM users WHERE id=%s", (session["user_id"],))
+    user = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    if user and user[0] == 0:
         coins = [c for c in coins if c["score"] < 8]
 
-    return render_template("index.html", coins=coins, user=user)
+    return render_template("index.html", coins=coins)
 
 @app.route("/login", methods=["GET","POST"])
 def login_route():
@@ -66,16 +64,17 @@ def pay():
 
 @app.route("/success")
 def success():
-    user = get_user()
-    if not user:
-        return redirect("/login")
+    conn = get_db()
+    cur = conn.cursor()
 
-    db = get_db()
-    db.execute(
-        "UPDATE users SET is_pro=1 WHERE id=?",
-        (user["id"],)
+    cur.execute(
+        "UPDATE users SET is_pro=1 WHERE id=%s",
+        (session["user_id"],)
     )
-    db.commit()
+
+    conn.commit()
+    cur.close()
+    conn.close()
 
     return redirect("/")
 
