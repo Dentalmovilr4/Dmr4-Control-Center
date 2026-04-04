@@ -4,13 +4,9 @@ from datetime import datetime
 
 FILE = "data/history.json"
 
-def ensure_directory():
-    folder = os.path.dirname(FILE)
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
 def load_history():
-    ensure_directory()
+    if not os.path.exists("data"):
+        os.makedirs("data")
 
     if not os.path.exists(FILE):
         return []
@@ -18,15 +14,13 @@ def load_history():
     with open(FILE, "r") as f:
         return json.load(f)
 
-def save_snapshot(coins):
-    ensure_directory()
-
+def save_snapshot(results):
     history = load_history()
 
     history.append({
-        "timestamp": datetime.now().isoformat(),
-        "coins": coins
+        "timestamp": str(datetime.now()),
+        "coins": results
     })
 
     with open(FILE, "w") as f:
-        json.dump(history, f, indent=2)
+        json.dump(history[-50:], f, indent=2)
