@@ -3,3 +3,5 @@ requests
 python-dotenv
 stripe
 bcrypt
+psycopg2-binary
+gunicorn
