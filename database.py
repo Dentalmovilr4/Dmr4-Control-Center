@@ -2,8 +2,7 @@ import psycopg2
 import os
 
 def get_db():
-    conn = psycopg2.connect(os.getenv("DATABASE_URL"))
-    return conn
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
 
 def init_db():
     conn = get_db()
@@ -14,7 +13,7 @@ def init_db():
         id SERIAL PRIMARY KEY,
         username TEXT UNIQUE,
         password TEXT,
-        is_pro INTEGER DEFAULT 0
+        plan TEXT DEFAULT 'free'
     )
     """)
 
