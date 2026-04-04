@@ -10,9 +10,7 @@ def create_checkout():
         line_items=[{
             "price_data": {
                 "currency": "usd",
-                "product_data": {
-                    "name": "DMR4 PRO"
-                },
+                "product_data": {"name": "DMR4 PRO"},
                 "unit_amount": 500,
             },
             "quantity": 1,
