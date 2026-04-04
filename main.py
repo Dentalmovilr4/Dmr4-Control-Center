@@ -2,6 +2,7 @@ from miner import get_market_data
 from analyzer import analyze_coin
 from storage import save_snapshot, load_history
 from notifier import send_alert
+from viral import send_viral
 
 def run():
     raw = get_market_data()
@@ -25,6 +26,11 @@ def run():
             continue
 
     save_snapshot(results)
+
+    # 🔥 VIRAL AUTOMÁTICO
+    if results:
+        results = sorted(results, key=lambda x: x["score"], reverse=True)
+        send_viral(results)
 
 if __name__ == "__main__":
     run()
