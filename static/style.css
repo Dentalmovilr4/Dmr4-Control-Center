@@ -1,0 +1,16 @@
+body {
+    background:#050505;
+    color:#00ff99;
+    font-family: monospace;
+    text-align:center;
+}
+
+table {
+    width:90%;
+    margin:auto;
+}
+
+td, th {
+    padding:10px;
+    border-bottom:1px solid #222;
+}
