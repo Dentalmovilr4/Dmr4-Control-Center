@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DMR4 STARTUP - IA Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="static/style.css">
+    <title>DMR4 STARTUP - Showcase</title>
 </head>
 <body>
+    <h1>🚀 DMR4 STARTUP</h1>
 
-    <header>
-        <h1>🚀 DMR4 STARTUP</h1>
-        <div class="status-bar">
-            <p>SISTEMA ACTIVO // PLAN: <span>{{plan}}</span></p>
-        </div>
-    </header>
+    <div style="border: 1px solid #00f3ff; padding: 10px; display: inline-block; margin-bottom: 20px;">
+        <p style="color: #00f3ff; margin: 0;">MODO DEMOSTRACIÓN // CESAR, COLOMBIA</p>
+    </div>
 
-    <nav class="actions">
-        <a href="/pay/pro" class="btn-pro">💳 UPGRADE PRO ($5)</a>
-        <a href="/pay/elite" class="btn-elite">🔥 GO ELITE ($15)</a>
-    </nav>
+    <div style="margin: 20px 0;">
+        <a href="#" style="border: 2px solid #00f3ff; color: #00f3ff; text-decoration: none; padding: 10px; margin: 5px; display: inline-block; font-weight: bold;">💳 PRO ($5)</a>
+        <a href="#" style="border: 2px solid #bc13fe; color: #bc13fe; text-decoration: none; padding: 10px; margin: 5px; display: inline-block; font-weight: bold;">🔥 ELITE ($15)</a>
+    </div>
 
-    <main>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Moneda</th>
-                        <th>Score</th>
-                        <th>IA Prediction</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for c in coins %}
-                    <tr>
-                        <td><strong>{{c.name}}</strong></td>
-                        <td>{{c.score}}</td>
-                        <td>{{c.prediction}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </main>
+    <table>
+        <thead>
+            <tr>
+                <th>Moneda</th>
+                <th>Score</th>
+                <th>IA Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>SOLANA (SOL)</strong></td>
+                <td>98/100</td>
+                <td>BULLISH 🚀</td>
+            </tr>
+            <tr>
+                <td><strong>BITCOIN (BTC)</strong></td>
+                <td>85/100</td>
+                <td>STABLE 📈</td>
+            </tr>
+            <tr>
+                <td><strong>DMR4 COIN</strong></td>
+                <td>100/100</td>
+                <td>MOON 🌕</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <footer>
-        <a href="/logout" class="logout-link">TERMINAR SESIÓN [X]</a>
-    </footer>
-
+    <footer style="margin-top: 40px; font-size: 0.7em; color: #555;">
+        <p>Desplegado en Render para operaciones reales.</p>
+    </div>
 </body>
 </html>
+
