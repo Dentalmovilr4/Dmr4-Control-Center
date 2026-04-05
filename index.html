@@ -1,23 +1,51 @@
-<h1>🚀 DMR4 STARTUP</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMR4 STARTUP - IA Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-<p>Plan actual: {{plan}}</p>
+    <header>
+        <h1>🚀 DMR4 STARTUP</h1>
+        <div class="status-bar">
+            <p>SISTEMA ACTIVO // PLAN: <span>{{plan}}</span></p>
+        </div>
+    </header>
 
-<a href="/pay/pro">💳 PRO ($5)</a>
-<a href="/pay/elite">🔥 ELITE ($15)</a>
-<a href="/logout">Salir</a>
+    <nav class="actions">
+        <a href="/pay/pro" class="btn-pro">💳 UPGRADE PRO ($5)</a>
+        <a href="/pay/elite" class="btn-elite">🔥 GO ELITE ($15)</a>
+    </nav>
 
-<table>
-<tr>
-<th>Moneda</th>
-<th>Score</th>
-<th>IA</th>
-</tr>
+    <main>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Moneda</th>
+                        <th>Score</th>
+                        <th>IA Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in coins %}
+                    <tr>
+                        <td><strong>{{c.name}}</strong></td>
+                        <td>{{c.score}}</td>
+                        <td>{{c.prediction}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-{% for c in coins %}
-<tr>
-<td>{{c.name}}</td>
-<td>{{c.score}}</td>
-<td>{{c.prediction}}</td>
-</tr>
-{% endfor %}
-</table>
+    <footer>
+        <a href="/logout" class="logout-link">TERMINAR SESIÓN [X]</a>
+    </footer>
+
+</body>
+</html>
