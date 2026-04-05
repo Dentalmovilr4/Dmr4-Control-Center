@@ -31,7 +31,7 @@ def build_message(coins):
 🤖 IA: {top['prediction']}
 
 👉 Mira más señales:
-https://TU-APP.onrender.com
+https://dmr4-control-center.onrender.com
 """
 
     return message
