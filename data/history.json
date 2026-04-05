@@ -633,5 +633,460 @@
         "prediction": "riesgo alto"
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-05 21:13:33.498014",
+    "coins": [
+      {
+        "name": "Bitcoin",
+        "price": 67600.86504277325,
+        "change": 0.48289199,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Ethereum",
+        "price": 2067.1572558634007,
+        "change": 0.15211282,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Tether USDt",
+        "price": 0.9996472306521726,
+        "change": -0.02232323,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "BNB",
+        "price": 592.9569284766687,
+        "change": -0.085715,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "XRP",
+        "price": 1.3034538329718262,
+        "change": -1.00928069,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "USDC",
+        "price": 0.9998665821153616,
+        "change": -0.00339502,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Solana",
+        "price": 80.02278441865599,
+        "change": -1.08517603,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "TRON",
+        "price": 0.3185362293617921,
+        "change": 0.25393036,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Dogecoin",
+        "price": 0.09065012746783731,
+        "change": -1.519996,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "UNUS SED LEO",
+        "price": 10.086968609578534,
+        "change": 0.07845788,
+        "score": 0,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Hyperliquid",
+        "price": 35.90432129300992,
+        "change": -0.67463115,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Cardano",
+        "price": 0.2435799234329684,
+        "change": -1.51774233,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Bitcoin Cash",
+        "price": 425.723267108451,
+        "change": -3.60765378,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Chainlink",
+        "price": 8.644299351876855,
+        "change": -0.62868797,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Monero",
+        "price": 330.44596626185796,
+        "change": 2.11121406,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Ethena USDe",
+        "price": 0.9995428053821197,
+        "change": -0.00517609,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Dai",
+        "price": 0.9999545127651996,
+        "change": 0.00209378,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Canton",
+        "price": 0.13960948077594942,
+        "change": -0.02705997,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Stellar",
+        "price": 0.15907802698531873,
+        "change": -1.50108524,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "World Liberty Financial USD",
+        "price": 0.9995032265609162,
+        "change": -0.03976397,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Litecoin",
+        "price": 53.658295024117564,
+        "change": 0.25571847,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Zcash",
+        "price": 240.80191803955688,
+        "change": -4.46828147,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "PayPal USD",
+        "price": 0.999860402808833,
+        "change": 0.00088973,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Avalanche",
+        "price": 8.881094717092187,
+        "change": -1.23290522,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Hedera",
+        "price": 0.08678275196345665,
+        "change": -0.53108153,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "MemeCore",
+        "price": 2.750939559033204,
+        "change": 5.91004395,
+        "score": 8,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Shiba Inu",
+        "price": 5.83651318586498e-06,
+        "change": -2.23535903,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Sui",
+        "price": 0.8503182147874787,
+        "change": -2.17342067,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Bittensor",
+        "price": 300.2144277103872,
+        "change": -0.96552722,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Toncoin",
+        "price": 1.2470371298085665,
+        "change": 1.19131395,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "World Liberty Financial",
+        "price": 0.09758088324646381,
+        "change": -1.18301367,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Cronos",
+        "price": 0.06910298241599203,
+        "change": -1.0875025,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Tether Gold",
+        "price": 4612.159499849205,
+        "change": -0.45061819,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "PAX Gold",
+        "price": 4625.164263680518,
+        "change": -0.50812407,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Mantle",
+        "price": 0.6621605037323817,
+        "change": -1.2881858,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Polkadot",
+        "price": 1.227315940738169,
+        "change": -1.98417854,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Uniswap",
+        "price": 3.092393242906912,
+        "change": -1.00056274,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Global Dollar",
+        "price": 1.0000443495242533,
+        "change": 0.00268774,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "OKB",
+        "price": 82.35958754053512,
+        "change": -1.0680183,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Pi",
+        "price": 0.16998975734196287,
+        "change": -1.26109718,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Sky",
+        "price": 0.07374261079097807,
+        "change": -0.42905939,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Aster",
+        "price": 0.6587519514815745,
+        "change": -1.41787436,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "NEAR Protocol",
+        "price": 1.2316805261909511,
+        "change": -2.6457571,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "USDD",
+        "price": 0.9999091802976082,
+        "change": 0.01733213,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Aave",
+        "price": 92.24157968524652,
+        "change": -2.469721,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Pepe",
+        "price": 3.333272229014372e-06,
+        "change": -2.04070477,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Ripple USD",
+        "price": 0.9998939684146285,
+        "change": -0.01438896,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Ethereum Classic",
+        "price": 8.623759390930765,
+        "change": -1.3651035,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Bitget Token",
+        "price": 1.8558514211443127,
+        "change": -3.12441813,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      },
+      {
+        "name": "Internet Computer",
+        "price": 2.2675604717204574,
+        "change": -2.17602068,
+        "score": 3,
+        "probability": 0.5,
+        "tag": "\u274c AVOID",
+        "prediction": "riesgo alto"
+      }
+    ]
   }
 ]
