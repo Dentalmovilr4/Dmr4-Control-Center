@@ -8,6 +8,12 @@ FILE = "data/history.json"
 
 # ================= SAFE IMPORTS =================
 
+# --- NUEVO: Importación segura del motor de trading ---
+try:
+    from trading_engine import procesar_trading
+except:
+    def procesar_trading(data): pass 
+
 try:
     from database import init_db, get_db
     init_db()
@@ -43,7 +49,17 @@ def get_latest():
             history = json.load(f)
         if not history:
             return []
-        return history[-1]["coins"]
+        
+        latest_data = history[-1]["coins"]
+        
+        # 🔥 ACTIVACIÓN DEL MOTOR: Cada vez que alguien entra a la web, 
+        # el motor revisa si hay oportunidades y manda el Telegram.
+        try:
+            procesar_trading(latest_data)
+        except:
+            pass
+            
+        return latest_data
     except:
         return []
 
